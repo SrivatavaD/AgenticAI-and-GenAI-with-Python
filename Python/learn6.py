@@ -45,21 +45,36 @@
 
 # inheritance in python
 
-class basechai:
-    def __init__(self ,type_):
-        self.type = type_
-    def prepare(self):
-        print(f"preparing{self.type} chai...")
+# class basechai:
+#     def __init__(self ,type_):
+#         self.type = type_
+#     def prepare(self):
+#         print(f"preparing{self.type} chai...")
 
-class masalachai(basechai):
-    def add_spices(self):
-        print("adding cardamom, ginger, clove.")  
+# class masalachai(basechai):
+#     def add_spices(self):
+#         print("adding cardamom, ginger, clove.")  
 
-class chaishop:
-    chai_cls = basechai
+# class chaishop:
+#     chai_cls = basechai
 
-    def __init__(self):
-        self.chai = self.chai_cls("regular") 
+#     def __init__(self):
+#         self.chai = self.chai_cls("regular") 
+
+class A:
+    label = "A: base class"
+
+class B(A):
+    label = "B: masala blend" 
+class C(A):
+    label = "C: Herbal Blend"
+class D(B,C):
+    pass
+
+cup = D()
+print(cup.label)
+
+
 
                   
        
