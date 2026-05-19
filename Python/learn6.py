@@ -29,17 +29,38 @@
 # print(f"masala:{masala.is_hot}")
 # print(masala.flavor)
 
-class chaicup:
-    size = 150 #ml
+# class chaicup:
+#     size = 150 #ml
 
-    def describe(self):
-        return f"A{self.size}ml chai cup"
+#     def describe(self):
+#         return f"A{self.size}ml chai cup"
     
-cup = chaicup()
-print(cup.describe())
-print(chaicup.describe(cup))
+# cup = chaicup()
+# print(cup.describe())
+# print(chaicup.describe(cup))
 
-cup_two = chaicup()
-cup_two.size = 100
-print(chaicup.describe(cup_two))
+# cup_two = chaicup()
+# cup_two.size = 100
+# print(chaicup.describe(cup_two))
+
+# inheritance in python
+
+class basechai:
+    def __init__(self ,type_):
+        self.type = type_
+    def prepare(self):
+        print(f"preparing{self.type} chai...")
+
+class masalachai(basechai):
+    def add_spices(self):
+        print("adding cardamom, ginger, clove.")  
+
+class chaishop:
+    chai_cls = basechai
+
+    def __init__(self):
+        self.chai = self.chai_cls("regular") 
+
+                  
+       
     
