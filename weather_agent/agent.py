@@ -112,7 +112,7 @@ while True:
 
     while True:
         response = client.chat.completions.parse(
-            model="gpt-4o",
+            model=GEMINI_MODEL,
             response_format=MyOutputFormat,
             messages=message_history
         )
