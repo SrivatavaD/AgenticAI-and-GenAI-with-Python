@@ -3,8 +3,10 @@ from dotenv import load_dotenv
 from pathlib import Path
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+import os
 from langchain_qdrant import QdrantVectorStore
+
 
 load_dotenv()
 
@@ -22,9 +24,11 @@ text_splitter = RecursiveCharacterTextSplitter(
 
 chunks = text_splitter.split_documents(documents=docs)
 
-# Vector Embeddings
-embedding_model = OpenAIEmbeddings(
-    model="text-embedding-3-large"
+
+
+# Use HuggingFaceEmbeddings for local embedding generation
+embedding_model = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
 vector_store = QdrantVectorStore.from_documents(
