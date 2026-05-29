@@ -1,0 +1,6 @@
+google-genai
+SpeechRecognition
+python-dotenv
+requests
+pydantic
+PyAudio
